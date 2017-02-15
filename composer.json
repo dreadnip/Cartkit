@@ -1,0 +1,13 @@
+{
+    "name": "sander/cartkit",
+    "description": "Demo",
+    "authors": [
+        {
+            "name": "Sander De la Marche",
+            "email": "sanderdlm69@gmail.com"
+        }
+    ],
+    "require": {
+    	"stripe/stripe-php": "4.*"
+    }
+}

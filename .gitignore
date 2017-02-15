@@ -2,3 +2,4 @@
 /site/cache
 /site/accounts/starckio.php
 *.espressostorage
+/vendor/

@@ -59,6 +59,20 @@ function cart_count($cart) {
     return $count;
 }
 
+function cart_calc_total($cart) {
+    $count = 0; $total = 0;
+    foreach($cart as $id => $quantity){
+      if($product = $products->findByURI($id)){
+        $count += $quantity;
+        $prodtotal = floatval($product->price()->value)*$quantity;
+        $total += $prodtotal;
+      }
+    }
+    $postage = cart_postage($total);
+    $final_amount = $total+$postage;
+    return $final_amount;
+}
+
 function cart_postage($total) {
     $postage;
     switch ($total) {
