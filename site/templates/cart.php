@@ -6,8 +6,8 @@
 
 <main id="cart" class="main black" role="main">
 	<div class="text">
-		<h1>Votre panier est vide.</h1>
-		<a class="btn-white" href="<?php echo url('products') ?>">Voir les produits</a>
+		<h1>Your cart is empty.</h1>
+		<a class="btn-white" href="<?php echo url('products') ?>">Go to the products.</a>
 	</div>
 </main>
 
@@ -31,10 +31,10 @@
 			<table cellpadding="6" rules="GROUPS" frame="BOX">
 				<thead>
 					<tr>
-					<th>Produit</th>
-					<th>Quantité</th>
+					<th>Product</th>
+					<th>Amount</th>
 					<th></th>
-					<th style="text-align: right;">Prix</th>
+					<th style="text-align: right;">Price</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -69,22 +69,22 @@
 				</tbody>
 				<tfoot>
 					<tr>
-						<td align="left" colspan="3">Sous-total</td>
+						<td align="left" colspan="3">Sub-total</td>
 						<td style="text-align: right;"><?php echo $site->currency_symbol() ?><?php printf('%0.2f', $total) ?></td>
 					</tr>
 					<tr>
 					<?php $postage = cart_postage($total) ?>
-						<td align="left" colspan="3">Frais de port</td>
+						<td align="left" colspan="3">Shipping cost</td>
 						<td style="text-align: right;"><?php echo $site->currency_symbol() ?><?php printf('%0.2f', $postage) ?></td>
 						<input type="hidden" name="shipping_<?php echo $i ?>" value="<?php printf('%0.2f', $postage) ?>" />
 					</tr>
 					<tr>
-						<th align="left" colspan="3">Montant total</th>
+						<th align="left" colspan="3">Total</th>
 						<th style="text-align: right;"><?php echo $site->currency_symbol() ?><?php printf('%0.2f', $total+$postage) ?></th>
 					</tr>
 				</tfoot>
 			</table>
-			<div><button class="btn-paypal" type="submit">Payer avec PayPal</button> ou <a class="btn" href="<?php echo url('products') ?>">Continuer les achats</a></div>
+			<div><button class="btn-paypal" type="submit">Pay with PayPal</button> ou <a class="btn" href="<?php echo url('products') ?>">Continue shopping</a></div>
 		</form>
 	</div>
 </main>

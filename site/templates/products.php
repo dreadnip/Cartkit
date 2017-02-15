@@ -23,13 +23,13 @@
 				<input type="hidden" name="action" value="add">
 				<input type="hidden" name="id" value="<?php echo $product->uid() ?>">
 				<h4 class="prix cf">
-					<button class="btn" type="submit">Ajouter au panier</button>
+					<button class="btn" type="submit">Add to cart</button>
 					<?php echo $site->currency_symbol() ?><?php echo $product->price() ?>
 				</h4>
 			</form>
 			<?php else: ?>
 			<h4 class="prix cf">
-				<button class="btn-disabled" type="submit" disabled="">Indisponible</button>
+				<button class="btn-disabled" type="submit" disabled="">Sold out</button>
 				<?php echo $site->currency_symbol() ?><?php echo $product->price() ?>
 			</h4>
 			<?php endif ?>

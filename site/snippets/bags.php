@@ -3,7 +3,7 @@
 
 <?php if ($count > 0): ?>
 <div class="bags cf">
-	<p>Vous avez <strong><?php echo $count ?> article<?php if ($count > 1) echo 's' ?></strong> dans votre panier.</p>
-	<a class="btn-white" href="<?php echo url('cart') ?>">Voir votre panier</a>
+	<p>You have <strong><?php echo $count ?> article<?php if ($count > 1) echo 's' ?></strong> in your cart.</p>
+	<a class="btn-white" href="<?php echo url('cart') ?>">Go to your cart.</a>
 </div>
 <?php endif ?>

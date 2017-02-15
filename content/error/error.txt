@@ -2,8 +2,8 @@ Title: Error
 
 ----
 
-Text: La page n'a pas été trouvée.
+Text: Page not found.
 
 ----
 
-Subtitle: Erreur 404
+Subtitle: 404

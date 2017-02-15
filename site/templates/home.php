@@ -9,7 +9,7 @@
 
 	<hr />
 
-	<h2>Nouveauté</h2>
+	<h2>Featured</h2>
 
 	<ul class="teaser cf">
 		<?php foreach(page('products')->children()->visible()->flip()->limit(4) as $product): ?>

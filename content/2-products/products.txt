@@ -6,4 +6,4 @@ Text:
 
 ----
 
-Subtitle: Un fantastique magasin créer avec Kirby!
+Subtitle: the store title.
