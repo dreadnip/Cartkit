@@ -1,5 +1,3 @@
-
-
 <?php snippet('header') ?>
 
 <?php if(count($cart) == 0): ?>
@@ -12,7 +10,6 @@
 	</main>
 
 <?php else: ?>
-
 	<main id="cart" class="main" role="main">
 		<div class="text">
 			<h1><?php echo $page->title()->html() ?></h1>
@@ -70,7 +67,7 @@
 				</tfoot>
 			</table>
 			<div>
-				<button class="btn btn-paypal pay-button" data-description="<?= $order_sum ?>" data-amount="<?= $total+$postage ?>">Pay now</button>
+				<button class="btn btn-paypal pay-button" data-description="<?= $order_sum ?>" data-amount="<?= ($total+$postage)*100 ?>">Pay now</button>
 				or <a class="btn" href="<?php echo url('products') ?>">Continue shopping</a>
 			</div>
 		</form>
@@ -78,6 +75,6 @@
 </main>
 
 <?php endif; ?>
-
+<!-- Include Stripe JS file only in this template to reduce load on other pages-->
 <script src="https://checkout.stripe.com/checkout.js"></script>
 <?php snippet('footer') ?>

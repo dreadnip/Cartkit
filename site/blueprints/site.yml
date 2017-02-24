@@ -21,30 +21,48 @@ fields:
     type:  textarea
 
   cartSettings:
-    label: Cartkit Settings
+    label: Payment Settings
     type: headline
-  email:
-    label: PayPal Email
-    type:  text
-    icon: paypal
-    required: true
-    width: 1/2
   currency_code:
     label: Currency Code
     type:  text
     placeholder: EUR, USD, GBP…
     icon: money
     required: true
-    width: 1/4
+    width: 1/2
   currency_symbol:
     label: Currency Symbol
     type:  text
     placeholder: €, $, £…
     icon: money
     required: true
-    width: 1/4
+    width: 1/2
+  stripe_secret_key:
+    label: Stripe secret key
+    type:  text
+    icon: key
+    required: true
+    width: 1/2
+  stripe_public_key:
+    label: Stripe publishable key
+    type:  text
+    icon: key
+    required: true
+    width: 1/2
+  stripe_testing_secret_key:
+    label: Stripe testing secret key
+    type:  text
+    icon: key
+    required: true
+    width: 1/2
+  stripe_testing_public_key:
+    label: Stripe testing publishable key
+    type:  text
+    icon: key
+    required: true
+    width: 1/2
   sandbox:
-      label: Paypal Sandbox
+      label: Stripe Sandbox
       type: switch
-      text: Use PayPal Sandbox for testing.
+      text: Use Stripe test keys for debugging.
       width: 1/2

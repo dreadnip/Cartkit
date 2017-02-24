@@ -1,5 +1,4 @@
-<?php $cart = get_cart(); ?>
-<?php $count = cart_count($cart); ?>
+<?php $count = cart_count(); ?>
 
 <?php if ($count > 0): ?>
 <div class="bags cf">

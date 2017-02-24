@@ -2,11 +2,11 @@ Title: Cartkit
 
 ----
 
-Author: Christopher Boutillé
+Author: Sander De la Marche
 
 ----
 
-Description: The [quick] starter kit !
+Description: An easy to use, basic, Stripe-based e-commerce solution for Kirby.
 
 ----
 
@@ -31,3 +31,19 @@ Currency-symbol: €
 ----
 
 Sandbox: true
+
+----
+
+Stripe-secret-key: sk_live_Q6MaFub8SQXv81xL78wkaTIw
+
+----
+
+Stripe-public-key: pk_live_ozEt3ILV417DWiktS6X1aaNS
+
+----
+
+Stripe-testing-secret-key: sk_test_8azO6Sto6q47Wp6mqQnzSQsd
+
+----
+
+Stripe-testing-public-key: pk_test_AFhA7f5ciyhHgz5VAVr3FbAU

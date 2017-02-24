@@ -2,20 +2,14 @@
 require_once('vendor/autoload.php');
 
 return function($site, $pages, $page) {
-	
-	/*
-		Configuration
-	*/
-
-	//setup Stripe config array
-	$stripe = array(
-		"secret_key"      => "sk_test_BQokikJOvBiI2HlWgH4olfQ2",
-		"publishable_key" => "pk_test_6pRNASCoBOKtIshFeQd4XMUh"
-	);
 
 	//set Stripe API key
-	\Stripe\Stripe::setApiKey($stripe['secret_key']);
-
+	if($site->sandbox() == true){
+		\Stripe\Stripe::setApiKey($site->stripe_testing_secret_key());
+	}else{
+		\Stripe\Stripe::setApiKey($site->stripe_secret_key());
+	}
+	
 	/*
 		Payment handling
 	*/
@@ -41,20 +35,25 @@ return function($site, $pages, $page) {
 	));
 
 	//recount the total charge
-	$final_amount = cart_logic(cart_calc_total($cart));
+	$total = cart_calc_total();
+  	$postage = cart_postage($total);
+  	$postage_in_cents = price_to_cents($postage);
+  	$final_amount = $total+$postage;
+  	$final_amount_in_cents = price_to_cents($final_amount);
 
 	//charge the customer
 	$charge = \Stripe\Charge::create(array(
 	    'customer' => $customer->id,
-	    'amount'   => $final_amount,
+	    'amount'   => $final_amount_in_cents,
 	    'currency' => 'eur'
 	));
 
+	//grab the transaction id to link to later
+	$stripe_id = $charge->id;
+
+	//adding an order record in the sqlite database
+	$order_id = add_order($billing_name, $email, $stripe_id, $final_amount_in_cents, $postage_in_cents);
+
 	//redirect to success/fail page
 	go('cart/paid');
-	/*
-	return array(
-	    'test' => $_POST
-	  );
-	  */
 };
