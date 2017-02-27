@@ -4,4 +4,4 @@
 /site/accounts/sander.php
 *.espressostorage
 /vendor/
-/assets/data
+/assets/data/

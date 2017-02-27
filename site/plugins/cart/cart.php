@@ -71,7 +71,7 @@ function cart_calc_total() {
     if($product = $products->findByURI($id)){
       $count += $quantity;
       $prodtotal = floatval($product->price()->value)*$quantity;
-      $ttal += $prodtotal;
+      $total += $prodtotal;
     }
   }
   return $total;
