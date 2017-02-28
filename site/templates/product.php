@@ -7,7 +7,7 @@
 	<h1><?php echo $page->title()->html() ?></h1>
 
 	<ul class="meta cf">
-		<li><b>Prix:</b> <?php echo $site->currency_symbol() ?><?php echo $page->price() ?></li>
+		<li><b></b> <?php echo $site->currency_symbol() ?><?php echo $page->price() ?></li>
 		<?php if($page->soldout() != 'true'): ?>
 		<li>
 		<form method="post" action="<?php echo url('cart') ?>">

@@ -11,3 +11,7 @@ Soldout: false
 ----
 
 Text: Plant Pedestals that fit together with seamless lap joinery. Made from Beech wood.
+
+----
+
+Tags: furniture

@@ -12,7 +12,15 @@
 	<hr>
 
 	<ul class="teaser cf">
-		<?php foreach($page->children()->visible()->flip() as $product): ?>
+		<?php
+		$products = $page->children()->visible()->flip();
+
+		if(param('tag')){
+			$tag = urldecode(param('tag'));
+			$products = $products->filterBy('tags', $tag, url::paramSeparator());
+		}
+
+		foreach($products as $product): ?>
 		<li>
 			<h4 class="title"><a href="<?php echo $product->url() ?>"><?php echo $product->title()->html() ?></a></h4>
 			<?php if($image = $product->images()->sortBy('sort', 'asc')->first()): ?>

@@ -7,6 +7,8 @@ email: sander@test.be
 language: en
 role: admin
 history:
+  - products/mono-lounge-chair-spitzer-grey
+  - products/soft-concrete-canister-gray
   - products
   - error
   - home

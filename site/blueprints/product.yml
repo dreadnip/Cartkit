@@ -11,10 +11,15 @@ fields:
     label: price
     type:  text
     width: 1/4
+  tags:
+    label: Tags
+    type:  tags
+    width: 3/4
   soldout:
-    label: Produit épuisé
+    label: Product sold out
     type: switch
-    text: Produit épuisé
+    text: 
+    width: 1/4
   text:
     label: Text
     type:  textarea
