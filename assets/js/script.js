@@ -9,24 +9,20 @@ if(window.StripeCheckout){
     currency: 'eur',
     billingAddress: true,
     token: function(token, args) {
-      // You can access the token ID with `token.id`.
-      // Get the token ID to your server-side code for use.
-      $.ajax({
-        type: 'POST',
-        url: 'cart/charge',
-        data: { 'token': token, 'args': args },
-        dataType: 'json'
-      }).done(function(res){
-        console.log(res);
-      });
+      //send to server
+      var data = { 'token': token, 'args': args };
+      var request = new XMLHttpRequest();
+      request.open('POST', 'cart/charge', true);
+      request.setRequestHeader("Content-Type", "application/json");
+      request.send(JSON.stringify(data));
     }
   });
 }
 
-$('.pay-button').click(function(e) {
-  // Open Checkout with further options:
-  var desc = $(this).data('description');
-  var amm = $(this).data('amount');
+// open click
+document.getElementById('pay-button').addEventListener('click', function(e) {
+  var desc = this.getAttribute('data-description');
+  var amm = this.getAttribute('data-amount');
 
   handler.open({
     description: desc,
@@ -35,7 +31,7 @@ $('.pay-button').click(function(e) {
   e.preventDefault();
 });
 
-// Close Checkout on page navigation:
+// close
 window.addEventListener('popstate', function() {
   handler.close();
 });

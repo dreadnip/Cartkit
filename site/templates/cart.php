@@ -67,7 +67,7 @@
 				</tfoot>
 			</table>
 			<div>
-				<button class="btn btn-paypal pay-button" data-description="<?= $order_sum ?>" data-amount="<?= ($total+$postage)*100 ?>">Pay now</button>
+				<button id="pay-button" class="btn btn-paypal" data-description="<?= $order_sum ?>" data-amount="<?= ($total+$postage)*100 ?>">Pay now</button>
 				or <a class="btn" href="<?php echo url('products') ?>">Continue shopping</a>
 			</div>
 		</form>

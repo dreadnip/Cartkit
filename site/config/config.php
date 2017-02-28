@@ -58,3 +58,21 @@ c::set('routes', array(
     }
   )
 ));
+
+/*
+
+---------------------------------------
+Dashboard layout
+--------------------------------------
+
+*/
+
+c::set('panel.stylesheet', 'assets/css/panel.css');
+
+c::set('panel.widgets', array(
+  'pages'    => true,
+  'site'     => false,
+  'account'  => false,
+  'history'  => true,
+  'orders' => true
+));

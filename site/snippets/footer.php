@@ -7,7 +7,6 @@
 	</div>
 </footer>
 
-<?= js('https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js') ?>
 <?= js('assets/js/script.js') ?>
 </body>
 </html>

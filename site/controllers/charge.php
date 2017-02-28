@@ -15,18 +15,22 @@ return function($site, $pages, $page) {
 	*/
 
 	//grab the 2 container arrays from the Stripe checkout window (token and args)
-	$token = $_POST['token'];
-	$args = $_POST['args'];
+	//header('Content-Type: application/json');
+	$json = file_get_contents('php://input');
+	$obj = json_decode($json);
+
+	$token = $obj->token;
+	$args = $obj->args;
 
 	//take the data we need from the arrays
-	$token_id = $token['id']; //The ID of the token representing the payment details
-	$email  = $token['email']; //The email address the user entered during the Checkout process
-	$billing_name  = $args['billing_name'];
-	$address  = $args['billing_address_line1'];
-	$zip  = $args['billing_address_zip'];
-	$state  = $args['billing_address_state'];
-	$city  = $args['billing_address_city'];
-	$country  = $args['billing_address_country'];
+	$token_id = $token->id; //The ID of the token representing the payment details
+	$email  = $token->email; //The email address the user entered during the Checkout process
+	$billing_name  = $args->billing_name;
+	$address  = $args->billing_address_line1;
+	$zip  = $args->billing_address_zip;
+	$state  = $args->billing_address_state;
+	$city  = $args->billing_address_city;
+	$country  = $args->billing_address_country;
 
 	//prep the customer object for Stripe
 	$customer = \Stripe\Customer::create(array(
